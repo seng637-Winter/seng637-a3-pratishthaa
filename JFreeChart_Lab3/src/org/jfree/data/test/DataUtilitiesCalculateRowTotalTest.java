@@ -167,7 +167,7 @@ public class DataUtilitiesCalculateRowTotalTest {
 	 	  // System.out.println("Actual Result: " + result);
 	        assertEquals(18.5, result, DELTA);
 	    }
-	    
+	    // X----------------------------------NEW TEST CASES FOR CALCULATEROWTOTAL()-ASSIGNMENT-3-------------------------------------------X
 	    @Test
 	    public void testCalculateRowWithSomeMissingValues() {
 	    	Mockery mockingContext = new Mockery();
