@@ -46,33 +46,7 @@ public class RangeCombineTest {
 	     assertEquals("Combining identical ranges should return the same range", r1, combinedRange);
 	 }
 	 
-	 @Test
-	 public void testCombineWithSingleElementRanges() {
-	     Range r1 = new Range(2.0, 2.0);
-	     Range r2 = new Range(2.0, 2.0);
-	     Range combinedRange = Range.combine(r1, r2);
-	     assertEquals("Combining such ranges should return the same range", r1, combinedRange);
-	 }
-	 
-	 @Test
-	 public void testCombineWithTouchInRanges() {
-	     Range r1 = new Range(2.0, 6.0);
-	     Range r2 = new Range(6.0, 10.0);
-	     Range combinedRange = Range.combine(r1, r2);
-	     assertEquals(2.0, combinedRange.getLowerBound(), DELTA);
-	     assertEquals(10.0 , combinedRange.getUpperBound(), DELTA);
-	 }
-	 
-	 @Test
-	 public void testCombineWithOneRangeInAnother() {
-	     Range r1 = new Range(1.0, 10.0);
-	     Range r2 = new Range(3.0, 7.0);
-	     Range combinedRange = Range.combine(r1, r2);
-	     assertEquals(1.0, combinedRange.getLowerBound(), DELTA);
-	     assertEquals(10.0 , combinedRange.getUpperBound(), DELTA);
-
-	 }
-
+	
     @Test
     public void testCombineWithRangeBoundsDoubleLimits() {
         Range r1 = new Range(Double.MAX_VALUE - 10.0, Double.MAX_VALUE);
@@ -113,6 +87,36 @@ public class RangeCombineTest {
         Range combinedRange = Range.combine(null, null);
         assertNull("Combining with both ranges null should return null", combinedRange);
     }
+
+	//X------------------------NEW TEST CASES FOR THE METHOD COMBINE()-ASSIGNMENT3-------------------------X
+
+	 @Test
+	 public void testCombineWithSingleElementRanges() {
+	     Range r1 = new Range(2.0, 2.0);
+	     Range r2 = new Range(2.0, 2.0);
+	     Range combinedRange = Range.combine(r1, r2);
+	     assertEquals("Combining such ranges should return the same range", r1, combinedRange);
+	 }
+	 
+	 @Test
+	 public void testCombineWithTouchInRanges() {
+	     Range r1 = new Range(2.0, 6.0);
+	     Range r2 = new Range(6.0, 10.0);
+	     Range combinedRange = Range.combine(r1, r2);
+	     assertEquals(2.0, combinedRange.getLowerBound(), DELTA);
+	     assertEquals(10.0 , combinedRange.getUpperBound(), DELTA);
+	 }
+	 
+	 @Test
+	 public void testCombineWithOneRangeInAnother() {
+	     Range r1 = new Range(1.0, 10.0);
+	     Range r2 = new Range(3.0, 7.0);
+	     Range combinedRange = Range.combine(r1, r2);
+	     assertEquals(1.0, combinedRange.getLowerBound(), DELTA);
+	     assertEquals(10.0 , combinedRange.getUpperBound(), DELTA);
+
+	 }
+
    
 
     @After
